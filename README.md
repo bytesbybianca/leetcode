@@ -1,11 +1,11 @@
-#[Grind 75](https://www.techinterviewhandbook.org/grind75)
+# Grind 75
 
-Working my way through Grind 75, a curated list of LeetCode questions. Read about it [here](https://www.techinterviewhandbook.org/grind75/about).
+Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75), a curated list of LeetCode questions. Read about it [here](https://www.techinterviewhandbook.org/grind75/about).
 
 ### Easy
 
 - [x] 1. [Two Sum](https://github.com/curtisbarnard/leetcode-grind75-javascript/blob/main/easy/twosum-1.md)
-- [x] 2. [Valid Parentheses]([#](https://leetcode.com/problems/valid-parentheses))
+- [x] 2. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
 - [ ] 3. Merge Two Sorted Lists
 - [ ] 4. Best Time to Buy and Sell Stock
 - [ ] 5. Valid Palindrome
