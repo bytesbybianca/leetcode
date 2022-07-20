@@ -29,7 +29,7 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 - [ ] 23. Diameter of Binary Tree
 - [ ] 24. Middle of the Linked List
 - [ ] 25. Maximum Depth of Binary Tree
-- [ ] 26. Contains Duplicate
+- [x] 26. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate)
 
 ### Medium
 
@@ -46,7 +46,7 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 - [ ] 37. Coin Change
 - [ ] 38. Product of Array Except Self
 - [ ] 39. Validate Binary Search Tree
-- [ ] 40. Number of Islands
+- [x] 40. [Number of Islands](https://leetcode.com/problems/number-of-islands)
 - [ ] 41. Rotting Oranges
 - [ ] 42. Search in Rotated Sorted Array
 - [ ] 43. Combination Sum
