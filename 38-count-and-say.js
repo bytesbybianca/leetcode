@@ -46,21 +46,24 @@ Constraints:
 
 // MY SOLUTION
 function countAndSay(n) {
-    // define start
+    // define starting string
     let string = '1'
     // loop until we reach n
     for(let i = 1; i < n; i++) {
         let newStr = ''
         // loop to evaluate the string of numbers
         for(let j = 0; j < string.length; j++) {
+            // count how many times the number repeats starting from 1
             let count = 1
+            // while the next character is the same, add to the count and index
             while(string[j] === string[j+1]){
                 count++
                 j++
             }
+            // add the number of times the number is counted and number to the new string
             newStr += `${count}${string[j]}`
         }
-        // loop to count numbers
+        // reassign string to be the new string to be looped again or returned
         string = newStr
     }
     return string
