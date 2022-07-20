@@ -36,10 +36,20 @@ Constraints:
 // MY SOLUTION
 // Runtime: 118 ms, faster than 68.53% of JavaScript online submissions for Contains Duplicate.
 function containsDuplicate(nums) {
-    let uniqueJoined = [...new Set(nums)].join('')
-    let numsJoined = nums.join('')
-    return uniqueJoined !== numsJoined
+    return [...new Set(nums)].length !== nums.length
 };
+
+// Runtime: 139 ms, faster than 49.19% of JavaScript online submissions for Contains Duplicate.
+// function containsDuplicate(nums) {
+//     return new Set(nums).size !== nums.length
+// };
+
+// Runtime: 118 ms, faster than 68.53% of JavaScript online submissions for Contains Duplicate.
+// function containsDuplicate(nums) {
+//     let uniqueJoined = [...new Set(nums)].join('')
+//     let numsJoined = nums.join('')
+//     return uniqueJoined !== numsJoined
+// };
 
 // Runtime: 7242 ms, faster than 5.01% of JavaScript online submissions for Contains Duplicate.
 // function containsDuplicate(nums) {
