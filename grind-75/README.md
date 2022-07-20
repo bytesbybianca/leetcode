@@ -4,13 +4,13 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 
 ### Easy
 
-- [x] 1. [Two Sum](https://github.com/curtisbarnard/leetcode-grind75-javascript/blob/main/easy/twosum-1.md)
+- [x] 1. [Two Sum](https://leetcode.com/problems/two-sum/)
 - [x] 2. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
 - [ ] 3. Merge Two Sorted Lists
 - [ ] 4. Best Time to Buy and Sell Stock
 - [ ] 5. Valid Palindrome
 - [ ] 6. Invert Binary Tree
-- [ ] 7. Valid Anagram
+- [x] 7. [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 - [ ] 8. Binary Search
 - [ ] 9. Flood Fill
 - [ ] 10. Maximum Subarray
