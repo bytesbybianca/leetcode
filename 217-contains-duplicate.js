@@ -34,9 +34,18 @@ Constraints:
 */
 
 // MY SOLUTION
+// Runtime: 118 ms, faster than 68.53% of JavaScript online submissions for Contains Duplicate.
 function containsDuplicate(nums) {
-    return nums.map((x, i) => i === nums.lastIndexOf(x)).includes(false)
+    let uniqueJoined = [...new Set(nums)].join('')
+    let numsJoined = nums.join('')
+    return uniqueJoined !== numsJoined
 };
+
+// Runtime: 7242 ms, faster than 5.01% of JavaScript online submissions for Contains Duplicate.
+// function containsDuplicate(nums) {
+//     return nums.map((x, i) => i === nums.lastIndexOf(x)).includes(false)
+// };
+
 // TEST CASES
 let nums = [1,2,3,1]
 console.log(containsDuplicate(nums), true);
