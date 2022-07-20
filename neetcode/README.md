@@ -9,7 +9,7 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 - [ ] Two Sum	
 - [ ] Group Anagrams	
 - [ ] Top K Frequent Elements	
-Product of Array Except - [ ] Self	
+- [ ] Product of Array Except Self
 - [ ] Valid Sudoku	
 - [ ] Encode and Decode Strings	
 - [ ] Longest Consecutive Sequence
@@ -35,7 +35,7 @@ Product of Array Except - [ ] Self
 - [ ] Course Schedule	
 - [ ] Course Schedule II	
 - [ ] Redundant Connection	
-Number of Connected - [ ] Components in Graph	
+ - [ ] Number of Connected Components in Graph	
 - [ ] Graph Valid Tree	
 Word Ladder
 
