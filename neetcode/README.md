@@ -23,6 +23,15 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 ### Tries
 ### Heap / Priority Queue
 ### Backtracking
+- [ ] Subsets	
+- [x] [Combination Sum](https://leetcode.com/problems/combination-sum/)
+- [ ] Permutations	
+- [ ] Subsets II	
+- [ ] Combination Sum II	
+- [ ] Word Search	
+- [ ] Palindrome Partitioning	
+- [ ] Letter Combinations of a Phone Number	
+- [ ] N-Queens
 ### Graphs
 
 - [x] [Number of Islands](https://leetcode.com/problems/number-of-islands/)

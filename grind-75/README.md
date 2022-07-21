@@ -49,7 +49,7 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 - [x] 40. [Number of Islands](https://leetcode.com/problems/number-of-islands)
 - [ ] 41. Rotting Oranges
 - [ ] 42. Search in Rotated Sorted Array
-- [ ] 43. Combination Sum
+- [x] 43. [Combination Sum](https://leetcode.com/problems/combination-sum/)
 - [ ] 44. Permutations
 - [ ] 45. Merge Intervals
 - [ ] 46. Lowest Common Ancestor of a Binary Tree
