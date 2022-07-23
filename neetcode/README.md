@@ -30,7 +30,7 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 - [ ] Combination Sum II	
 - [ ] Word Search	
 - [ ] Palindrome Partitioning	
-- [ ] Letter Combinations of a Phone Number	
+- [x] [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)	
 - [ ] N-Queens
 ### Graphs
 

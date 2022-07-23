@@ -66,7 +66,7 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 - [ ] 57. Unique Paths
 - [ ] 58. Construct Binary Tree from Preorder and Inorder Traversal
 - [ ] 59. Container With Most Water
-- [ ] 60. Letter Combinations of a Phone Number
+- [x] 60. [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 - [ ] 61. Word Search
 - [ ] 62. Find All Anagrams in a String
 - [ ] 63. Minimum Height Trees
