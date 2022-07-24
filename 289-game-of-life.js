@@ -61,62 +61,56 @@ Originally alive: board[row][col] >= 1
 */
 
 function gameOfLife(board){
-  // loop through board row
-  for(let row = 0; row < board.length; row++) {
-    // loop through elements
-    for(let col = 0; col < board[0].length; col++) {
-      // define original number of 0 as a dead neighbor
-      let deadNeighbor = board[row][col] === 0 
+  // loop through row
+  for(let r = 0; r < board.length; r++) {
+    // loop through columns
+    for(let c = 0; c < board[0].length; c++) {
+      // define a dead neighbor to be element === 0
+      let deadNeighbor = board[r][c] === 0
       let count = 0
-          // for each element, count how many live (1) neighbors
-          // explore all directions
-          count += explore(board, row + 1, col)
-          count += explore(board, row + 1, col +1)
-          count += explore(board, row + 1, col -1)
-          count += explore(board, row, col - 1)
-          count += explore(board, row, col + 1)
-          count += explore(board, row - 1, col)
-          count += explore(board, row - 1, col -1)
-          count += explore(board, row - 1, col +1)
-
-        if(deadNeighbor) {
-            // dead now, alive later => -1
-            if (count === 3) {
-              board[row][col] = -1 
-            } else {
-              // dead now, dead later => 0
-              board[row][col] = 0
-            }
-          } else if(!deadNeighbor)  {
-            // alive now, dead later => 2
-            if (count < 2 || count > 3) {
-              board[row][col] = 2
-            // alive now, alive later => 1
-            } else if (count === 2 || count === 3) { 
-              board[row][col] = 1
-          }
+      // for each neighbor, check all neighbors
+      count += explore(board, r + 1, c - 1)
+      count += explore(board, r + 1, c)
+      count += explore(board, r + 1, c + 1)
+      count += explore(board, r, c - 1)
+      count += explore(board, r, c + 1)
+      count += explore(board, r - 1, c - 1)
+      count += explore(board, r - 1, c)
+      count += explore(board, r - 1, c + 1)
+      // console.log(count)
+      // if dead neighbor and count === 3, change to -1
+      if(deadNeighbor) {
+        if(count === 3) {
+          board[r][c] = -1
+        }
+      } else {
+        // if not a dead neighbor and count < 2 or count > 3, change to 2
+        if(count < 2 || count > 3) {
+          board[r][c] = 2
         }
       }
     }
-    // loop through board to return new numbers to 1s and 0s
-    for(let row = 0; row < board.length; row++) {
-      for(let col = 0; col < board[0].length; col++) {
-        board[row][col] = Math.abs(board[row][col] % 2)
+  }
+  // loop through board to return to 1s and 0s
+    // loop through row
+    for(let r = 0; r < board.length; r++) {
+      // loop through columns
+      for(let c = 0; c < board[0].length; c++) {
+        board[r][c] = Math.abs(board[r][c] % 2)
       }
     }
-  // return board
   return board
 }
 
-// explore neighborhood
-function explore(board, row, col) {
-  // if out of bounds or neighbors are dead, no neighbor to count
-  if( row < 0 || col < 0 || row >= board.length || col >= board[0].length || board[row][col] <= 0) {
+// explore
+function explore(board, r, c) {
+  if(r < 0 || c < 0 || r >= board.length || c >= board[0].length || board[r][c] === -1 || board[r][c] === 0) {
     return 0;
   }
-  // if neighbor is alive, count 1
-  if(board[row][col] >= 1) {
-    return 1;
+  // check neighbor
+  if(board[r][c] === 1 || board[r][c] === 2) {
+    // if 1, count 
+    return 1
   }
 }
 
