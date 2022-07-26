@@ -47,22 +47,28 @@ R: the indicies of the two numbers that sum to the target in an array
 
 // MY SOLUTION
 var twoSum = function(nums, target) {
-    if(nums.length === 2) return [0, 1]
-    // for each element, add to every other element
+    let arr
+    // loop through array
     for(let i = 0; i < nums.length; i++) {
-        for(let j = 0; j < nums.length; j++) {
-            // if sum === target, find the indicies
-            if(i !== j && nums[i] + nums[j] === target) {
-                // return in an array
-                    return [i, j]
-                }
-            }
-        }
-    };
-
-
-// TEST CASES
-console.log(twoSum([2,7,11,15], 9), [0, 1])
-console.log(twoSum([3,2,4], 6), [1, 2])
-console.log(twoSum([3,2,3], 6), [0, 2])
-console.log(twoSum([3,3], 6), [0, 1])
+      // backtrack until target is reached
+      arr = backtrack(nums, i, target)
+      if(arr) {
+        return arr
+      }
+    }
+  };
+  
+  function backtrack(nums, i, target) {
+    for(let j = i + 1; j < nums.length; j++) {
+      if(nums[i] + nums[j] === target) {
+        return [i, j]
+      }
+    }
+  }
+  
+  
+  // TEST CASES
+  console.log(twoSum([2,7,11,15], 9), [0, 1])
+  console.log(twoSum([3,2,4], 6), [1, 2])
+  console.log(twoSum([3,2,3], 6), [0, 2])
+  console.log(twoSum([3,3], 6), [0, 1])
