@@ -47,24 +47,16 @@ R: the indicies of the two numbers that sum to the target in an array
 
 // MY SOLUTION
 var twoSum = function(nums, target) {
-    let arr
-    // loop through array
+    let map = new Map();
+  
     for(let i = 0; i < nums.length; i++) {
-      // backtrack until target is reached
-      arr = backtrack(nums, i, target)
-      if(arr) {
-        return arr
+      if(map.has(target - nums[i])) {
+        return [map.get(target - nums[i]), i]
+      } else {
+        map.set(nums[i], i)
       }
     }
   };
-  
-  function backtrack(nums, i, target) {
-    for(let j = i + 1; j < nums.length; j++) {
-      if(nums[i] + nums[j] === target) {
-        return [i, j]
-      }
-    }
-  }
   
   
   // TEST CASES
