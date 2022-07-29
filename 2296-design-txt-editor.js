@@ -1,7 +1,12 @@
+/*
+ * Runtime: 898 ms, faster than 60.35% of JavaScript online submissions for Design a Text Editor.
+ * Memory Usage: 115.2 MB, less than 63.22% of JavaScript online submissions for Design a Text Editor.
+ */
+
 var TextEditor = function() {
-    this.text = ''
     this.cursorPosition = 0
-    // this.textLength = 0
+    this.leftStr = ''
+    this.rightStr = ''
 };
 
 /** 
@@ -9,30 +14,12 @@ var TextEditor = function() {
  * @return {void}
  */
 TextEditor.prototype.addText = function(text) {
-    // part of the string to the left of the cursor
-    let leftStr = this.text.slice(0, this.cursorPosition)
-    // part of the string to the right of the cursor
-    let rightStr = this.text.slice(this.cursorPosition)
-    // if the string is empty
-    if(!this.text.length) {
-        // cursor position is 0
-        this.cursorPosition = 0
-        console.log(`original empty string added "${text}" & original position ${this.cursorPosition}`)
-        // add text to the empty string
-        this.text += text
-        // cursor position is now at the end of the string => "textAdded|"
-        this.cursorPosition = this.text.length
-    // if string is not empty
-    } else {
-        // add text to where the cursor is by adding to the end of the left side of string
-        this.text = leftStr + text
-        // update cursor position to the end of the new text
-        this.cursorPosition = this.text.length
-        // add the right side of the string
-        this.text += rightStr
-        console.log(`original text "${leftStr}${rightStr}" added "${text}". Text now "${this.text}" & position ${this.cursorPosition}`)
-    }
-    console.log(`added ${this.text} & new position ${this.cursorPosition}`)
+    // add text to the left string
+    this.leftStr += text
+    // the cursor position is at the end of the left string
+    this.cursorPosition = this.leftStr.length
+    // console.log(`Added text "${text}" and the string is now "${this.leftStr}${this.rightStr}" and cursor position ${this.cursorPosition}`)
+    return null
 };
 
 /** 
@@ -40,29 +27,24 @@ TextEditor.prototype.addText = function(text) {
  * @return {number}
  */
 TextEditor.prototype.deleteText = function(k) {
-    // part of the string to the left of the cursor
-    let leftStr = this.text.slice(0, this.cursorPosition)
-    let leftStrLength = leftStr.length
-    // part of the string to the right of the cursor
-    let rightStr = this.text.slice(this.cursorPosition)
+    // length of the left string is the number of characters to the left of cursor
+    let leftStrLength = this.cursorPosition
     // if the number of characters to delete is smaller the number of characters to the left of cursor, we can delete k numbers characters
-    if(k < leftStrLength) {
-        // to delete k number of characters, left string is sliced from 0 to its lenght minus k
-        leftStr = leftStr.slice(0, leftStrLength - k)
-        // text is now left and right strings joined
-        this.text = leftStr + rightStr
-        // cursor remains to the end of the now shorter left string
-        this.cursorPosition = leftStr.length
-        console.log(`Deleted ${leftStrLength - leftStr.length} characters`)
-        // return the numbers of characters deleted - the difference between initial length of left string and new length
-        return leftStrLength - leftStr.length
+    if(k < this.cursorPosition) {
+        // cursor position is now the length of the original left string minus the number of characters to delete (k)
+        this.cursorPosition -= k
+        // to delete k number of characters, left string is sliced from 0 to its new cursor position
+        this.leftStr = this.leftStr.slice(0, this.cursorPosition)
+        // console.log(`Deleted ${k} characters and the string is now ${this.leftStr}${this.rightStr} with a cursor position of ${this.cursorPosition}`)
+        // return the numbers of characters deleted (k)
+        return k
     // if the number of characters to delete is larger than the number of characters of the left string,
     } else {
-        // delete entire left string. text is now just the right string
-        this.text = rightStr
+        // delete entire left string
+        this.leftStr = ''
         // cursor is to the left of the right string
         this.cursorPosition = 0
-        console.log(`Deleted ${leftStrLength} characters`)
+        // console.log(`Deleted ${leftStrLength} characters with a cursor position of ${this.cursorPosition}`)
         // return the number of characters deleted, which is the initial length of the deleted left string
         return leftStrLength
     }
@@ -73,37 +55,30 @@ TextEditor.prototype.deleteText = function(k) {
  * @return {string}
  */
  TextEditor.prototype.cursorLeft = function(k) {
-    // part of the string to the left of the cursor
-    let leftStr = this.text.slice(0, this.cursorPosition)
-    let leftStrLength = leftStr.length
-    // part of the string to the right of the cursor
-    let rightStr = this.text.slice(this.cursorPosition)
-    // if the number of characters to move left (k) is smaller than the length of left string,
-    if(k < leftStrLength) {
+    // if the number of characters to move left (k) is smaller than the cursor position
+    if(k < this.cursorPosition) {
         // we can move cursor k characters to the left
         this.cursorPosition -= k
-        console.log(`Cursor left fn - position moved from ${this.cursorPosition += k} to ${this.cursorPosition -= k}`)
+        // console.log(`Cursor left fn - position moved from ${this.cursorPosition += k} to ${this.cursorPosition -= k}`)
     // if the number of characters to move left (k) is greater than the length of the left string,
     } else {
-        console.log(`Cursor moved left less than ${k} spaces from ${this.cursorPosition} to 0`)
+        // console.log(`Cursor moved left less than ${k} spaces from ${this.cursorPosition} to 0`)
         // we move cursor to 0
         this.cursorPosition = 0
     }
-    // part of the string to the left of the cursor
-    leftStr = this.text.slice(0, this.cursorPosition)
-    leftStrLength = leftStr.length
+    // reassign the right string to include the portion of the left string, starting at new cursor position + original right string
+    this.rightStr = this.leftStr.substring(this.cursorPosition) + this.rightStr
+    // reassign the left string to be from 0 to new cursor position
+    this.leftStr = this.leftStr.substring(0, this.cursorPosition)
     /* return characters from text */
-    // if the length of the left string is greater than 10
-    if(leftStrLength > 10) {
-        // return just the 10 characters to the left of cursor position
-        console.log(`Cursor left fn - returning "${leftStr.slice(leftStrLength - 10, leftStrLength)}"`)
-        return leftStr.slice(leftStrLength - 10, leftStrLength)
-    // if the length of the left string is less than 10
-    } else {
-        // return the entire left string
-        console.log(`Cursor left fn - returning "${leftStr}"`)
-        return leftStr
-    }
+    // len is the smaller of either 10 of the number of characters to the left of the cursor
+    let len = Math.min(10, this.cursorPosition)
+    /* 
+    ** if len is the length of the left string, return the entire left * string
+    ** if len is 10, return the left string starting 10 characters left of the cursor position until cursor position
+    */
+   // console.log(`Cursor left fn - returning ${this.leftStr.slice(this.cursorPosition - len, this.cursorPosition)}`)
+    return this.leftStr.slice(this.cursorPosition - len, this.cursorPosition)
 };
 
 /** 
@@ -111,37 +86,33 @@ TextEditor.prototype.deleteText = function(k) {
  * @return {string}
  */
 TextEditor.prototype.cursorRight = function(k) {
-    // part of the string to the right of the cursor
-    let rightStr = this.text.slice(this.cursorPosition)
-    console.log(`cursor right fn - right str ${rightStr}`)
-    let rightStrLength = rightStr.length
-    const endIndex = this.text.length
+  // the end of entire string
+  let endIndex = this.leftStr.length + this.rightStr.length
+  // console.log(this.leftStr)
     // if the number of characters to move right (k) is smaller than the length of right string, we can move cursor k characters to the right
-        if(k < rightStrLength) {
+        if(k < this.rightStr.length) {
             // we can move cursor k characters to the right
             this.cursorPosition += k
-            console.log(`Cursor right fn - position moved ${k} spaces from ${this.cursorPosition -= k} to ${this.cursorPosition += k}`)
-        // if the number of characters to move right (k) is greater than the length of the right string,
+            // console.log(`Cursor right fn - position moved ${k} spaces from ${this.cursorPosition -= k} to ${this.cursorPosition += k}`)
+        // if the number of characters to move right (k) is greater than or equal to the length of the right string,
         } else {
-            console.log(`Cursor moved right less than ${k} spaces from ${this.cursorPosition} to end of string position ${endIndex}`)
+            // console.log(`Cursor moved right less than ${k} spaces from ${this.cursorPosition} to end of string position ${endIndex}`)
             // we move cursor to the end of text length
             this.cursorPosition = endIndex
         }
-    // part of the string to the left of the cursor
-    let leftStr = this.text.slice(0, this.cursorPosition)
-    let leftStrLength = leftStr.length
+    // reassign the left string to include the original left string + portion of the right string, starting at 0 to number of characters moved right
+    this.leftStr = this.leftStr + this.rightStr.substring(0, k)
+    // reassign the right string to start from the number of characters moved right to the end
+    this.rightStr = this.rightStr.substring(k)
     /* return characters from text */
-    // if the length of the left string is greater than 10
-    if(leftStrLength > 10) {
-        // return just the 10 characters to the left of cursor position
-        console.log(`Cursor right fn - returning "${leftStr.slice(leftStrLength - 10, leftStrLength)}"`)
-        return leftStr.slice(leftStrLength - 10, leftStrLength)
-    // if the length of the left string is less than 10
-    } else {
-        // return the entire left string
-        console.log(`Cursor right fn - returning "${leftStr}"`)
-        return leftStr
-    }
+    // len is the smaller of either 10 of the number of characters to the left of the cursor
+    let len = Math.min(10, this.cursorPosition)
+    /* 
+    ** if len is the length of the left string, return the entire left * string
+    ** if len is 10, return the left string starting 10 characters left of the cursor position until cursor position
+    */
+    // console.log(`Cursor right fn - returning ${this.leftStr.slice(this.cursorPosition - len, this.cursorPosition)}`)
+    return this.leftStr.slice(this.cursorPosition - len, this.cursorPosition)
 };
 
 /** 
