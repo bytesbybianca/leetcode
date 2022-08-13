@@ -6,7 +6,7 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 
 - [x] 1. [Two Sum](https://leetcode.com/problems/two-sum/)
 - [x] 2. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
-- [ ] 3. Merge Two Sorted Lists
+- [ ] 3. [Merge Two Linked Lists](https://leetcode.com/problems/merge-two-sorted-lists)
 - [ ] 4. Best Time to Buy and Sell Stock
 - [ ] 5. Valid Palindrome
 - [ ] 6. Invert Binary Tree

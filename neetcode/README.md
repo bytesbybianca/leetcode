@@ -19,6 +19,17 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 ### Stack
 ### Binary Search
 ### Linked List
+- [ ] Reverse Linked List	
+- [x] [Merge Two Linked Lists](https://leetcode.com/problems/merge-two-sorted-lists)
+- [ ] Reorder List	
+- [ ] Remove Nth Node from End of List	
+- [ ] Copy List with Random Pointer	
+- [ ] Add Two Numbers	
+- [ ] Linked List Cycle	
+- [ ] Find the Duplicate Number	
+- [ ] LRU Cache	
+- [ ] Merge K Sorted Lists	
+- [ ] Reverse Nodes in K-Group
 ### Trees
 ### Tries
 ### Heap / Priority Queue
