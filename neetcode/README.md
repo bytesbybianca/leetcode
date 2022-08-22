@@ -7,7 +7,7 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 - [x] [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 - [x] [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 - [x] [Two Sum](https://leetcode.com/problems/two-sum/submissions/)	
-- [ ] Group Anagrams	
+- [x] [Group Anagrams](https://leetcode.com/problems/group-anagrams)
 - [ ] Top K Frequent Elements	
 - [ ] Product of Array Except Self
 - [ ] Valid Sudoku	
