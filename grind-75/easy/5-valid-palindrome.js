@@ -53,28 +53,56 @@ boolean - true if string is the same when reversed, after removing all non-alpha
  * @return {boolean}
  */
  var isPalindrome = function(s) {
-     /*
-     ASCII
-     0-9 => 48-57
-     A-Z => 65-90
-     a-z => 97-122
-     */
-     // filter string for only alphanumeric characters
-     // lowercase
-    let filtered = s.split('').map((x, i) => {
-        return x.charCodeAt(0) >= 48 && x.charCodeAt(0) <= 57 ? x :
-        x.charCodeAt(0) >= 65 && x.charCodeAt(0) <= 90 ? x :
-        x.charCodeAt(0) >= 97 && x.charCodeAt(0) <= 122 ? x : ''
-    }).join('').toLowerCase()
-    let reversed = filtered.split('').reverse().join('')
-    // return true if the same reversed
-    return filtered === reversed
-};
-  
-  // TEST CASES
+    /*
+    ASCII
+    0-9 => 48-57
+    A-Z => 65-90
+    a-z => 97-122
+    */
+    // filter string for only alphanumeric characters
+    // lowercase
+   let filtered = s.split('').map((x, i) => {
+       if( (x.charCodeAt(0) >= 48 && x.charCodeAt(0) <= 57) ||
+       (x.charCodeAt(0) >= 65 && x.charCodeAt(0) <= 90) ||
+       (x.charCodeAt(0) >= 97 && x.charCodeAt(0) <= 122) ) {
+         return x
+       }
+   }).join('').toLowerCase()
 
-  console.log(isPalindrome("A man, a plan, a canal: Panama"), true)
-  console.log(isPalindrome("race a car"), false)
-  console.log(isPalindrome(" "), true)
-  console.log(isPalindrome("12 21"), true)
-  console.log(isPalindrome("0P"), false)
+   let reversed = filtered.split('').reverse().join('')
+   // return true if the same reversed
+   return filtered === reversed
+};
+ 
+ // TEST CASES
+
+ console.log(isPalindrome("A man, a plan, a canal: Panama"), true)
+ console.log(isPalindrome("race a car"), false)
+ console.log(isPalindrome(" "), true)
+ console.log(isPalindrome("12 21"), true)
+ console.log(isPalindrome("0P"), false)
+
+
+/*
+Solution 1
+
+var isPalindrome = function(s) {
+ 
+ ASCII
+ 0-9 => 48-57
+ A-Z => 65-90
+ a-z => 97-122
+ 
+ // filter string for only alphanumeric characters
+ // lowercase
+let filtered = s.split('').map((x, i) => {
+    return x.charCodeAt(0) >= 48 && x.charCodeAt(0) <= 57 ? x :
+    x.charCodeAt(0) >= 65 && x.charCodeAt(0) <= 90 ? x :
+    x.charCodeAt(0) >= 97 && x.charCodeAt(0) <= 122 ? x : ''
+}).join('').toLowerCase()
+
+let reversed = filtered.split('').reverse().join('')
+// return true if the same reversed
+return filtered === reversed
+};
+*/
