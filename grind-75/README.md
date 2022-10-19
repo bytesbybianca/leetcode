@@ -8,7 +8,7 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 - [x] 2. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
 - [ ] 3. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
 - [ ] 4. Best Time to Buy and Sell Stock
-- [ ] 5. Valid Palindrome
+- [x] 5. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 - [ ] 6. Invert Binary Tree
 - [x] 7. [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 - [ ] 8. Binary Search
