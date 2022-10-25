@@ -58,7 +58,6 @@ Constraints:
       let rightOfMin = prices.slice(prices.indexOf(min)+1)
       profits.push(Math.max(...rightOfMin) - min)
       prices.splice(prices.indexOf(min), 1)
-      console.log('min', min, 'rightOfMin', rightOfMin, 'prices', prices, 'profits', profits)
     }
   }
   // return max profits
