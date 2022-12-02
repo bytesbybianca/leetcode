@@ -33,11 +33,36 @@ Constraints:
 
 */
 
-// MY SOLUTION
-// Runtime: 118 ms, faster than 68.53% of JavaScript online submissions for Contains Duplicate.
+// MY SOLUTION December 2022
 function containsDuplicate(nums) {
-    return [...new Set(nums)].length !== nums.length
-};
+    let hash = {}
+    for(let i = 0; i < nums.length; i++) {
+      if(hash[nums[i]]) {
+        return true
+      } else {
+        hash[nums[i]] = 1
+      }
+    }
+    return false
+  }
+
+// function containsDuplicate(nums) {
+//     return [...new Set(nums)].length !== nums.length
+//   };
+  
+  
+  // function containsDuplicate(nums) {
+  //   for(let i = 0; i < nums.length; i++) {
+  //     if(nums.indexOf(nums[i]) !== nums.lastIndexOf(nums[i])) return true
+  //   }
+  //   return false
+  // };
+
+// MY SOLUTION July 2022
+// Runtime: 118 ms, faster than 68.53% of JavaScript online submissions for Contains Duplicate.
+// function containsDuplicate(nums) {
+//     return [...new Set(nums)].length !== nums.length
+// };
 
 // Runtime: 139 ms, faster than 49.19% of JavaScript online submissions for Contains Duplicate.
 // function containsDuplicate(nums) {
