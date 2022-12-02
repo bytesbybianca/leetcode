@@ -37,6 +37,7 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 
 // MY SOLUTION December 2022
 var isAnagram = function(s, t) {
+    if(s.length !== t.length) return false
     let hash = {}
     for(const letter of s) {
       if(hash[letter]) {
