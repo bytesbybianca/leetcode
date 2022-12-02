@@ -35,10 +35,38 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 
 */
 
-// MY SOLUTION
+// MY SOLUTION December 2022
 var isAnagram = function(s, t) {
-    return s.split('').sort().join('') === t.split('').sort().join('')
-};
+    let hash = {}
+    for(const letter of s) {
+      if(hash[letter]) {
+        hash[letter]++
+      } else {
+        hash[letter] = 1
+      }
+    }
+  
+    for(const letter of t) {
+      if(hash[letter] > 0) {
+        hash[letter]--
+      } else {
+        return false
+      }
+    }
+    
+    for(let letter in hash) {
+      if(hash[letter] !== 0) {
+        return false
+      }
+    }
+  
+    return true
+  };
+
+// MY SOLUTION July 2022
+// var isAnagram = function(s, t) {
+//     return s.split('').sort().join('') === t.split('').sort().join('')
+// };
 
 // TEST CASES
 let s = "anagram", t = "nagaram"
