@@ -50,20 +50,38 @@ given array of nums => neg, 0, pos
 return array product of all el, except nums[i]
 */
 
- var productExceptSelf = function(nums) {
-    let results = []
-    for(let i = 0; i < nums.length; i++) {
-      let product = 1
-      for(let j = 0; j < nums.length; j++) {
-        if(j !== i) {
-          product *= nums[j]
-        }
-      }
-      results.push(product)
-    }
+var productExceptSelf = function(nums) {
+  let leftProduct = 1
+  let rightProduct = 1
+  let output = [1]
 
-    return results
+  for(let i = 0; i < nums.length - 1; i++) {
+    output.push(nums[i] * leftProduct)
+    leftProduct *= nums[i]
+  }
+
+  for(let i = nums.length - 1; i >= 0; i--) {
+    output[i] *= rightProduct
+    rightProduct *= nums[i]
+  }
+
+  return output
 };
+
+//  var productExceptSelf = function(nums) {
+//     let results = []
+//     for(let i = 0; i < nums.length; i++) {
+//       let product = 1
+//       for(let j = 0; j < nums.length; j++) {
+//         if(j !== i) {
+//           product *= nums[j]
+//         }
+//       }
+//       results.push(product)
+//     }
+
+//     return results
+// };
 
 // TEST CASES
 
