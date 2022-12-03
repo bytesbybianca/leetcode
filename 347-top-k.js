@@ -48,31 +48,66 @@ find freq of each el
 return k most frequen elements in an array
 */
 
-function topKFrequent(nums, k) {
-  let hash = {}
-  let results = []
-  
-  for(let i = 0; i < nums.length; i++) {
-    if(hash[nums[i]]) {
-      hash[nums[i]]++
+var topKFrequent = function(nums, k) {
+  const freqMap = new Map();
+  let bucket = []
+  let result = []
+  // map num and frequency
+
+  for(let num of nums) {
+    if(freqMap.get(num)) {
+      freqMap.set(num, freqMap.get(num) + 1)
     } else {
-      hash[nums[i]] = 1
+      freqMap.set(num, 1)
     }
   }
 
-  for(const key in hash) {
-    results.push([key, hash[key]])
+  // bucket: index == freq; set of nums
+  for(let [nums, freq] of freqMap) {
+    if(bucket[freq]) {
+      bucket[freq].add(nums)
+    } else {
+      bucket[freq] = new Set().add(nums)
+    }
   }
 
-  const sorted = results.sort((a, b) => b[1] - a[1])
+  // from end, push nums to result
 
-  let arr = []
-  results.slice(0, k).map((sub) => {
-    arr.push(Number(sub[0]))
-  })
-
-  return arr
+  for(let i = bucket.length - 1; i >= 0; i--) {
+    if(bucket[i]) result.push(...bucket[i])
+    if(result.length === k) break
+  }
+  // return  
+  return result
 };
+
+
+
+// function topKFrequent(nums, k) {
+//   let hash = {}
+//   let results = []
+  
+//   for(let i = 0; i < nums.length; i++) {
+//     if(hash[nums[i]]) {
+//       hash[nums[i]]++
+//     } else {
+//       hash[nums[i]] = 1
+//     }
+//   }
+
+//   for(const key in hash) {
+//     results.push([key, hash[key]])
+//   }
+
+//   const sorted = results.sort((a, b) => b[1] - a[1])
+
+//   let arr = []
+//   results.slice(0, k).map((sub) => {
+//     arr.push(Number(sub[0]))
+//   })
+
+//   return arr
+// };
 
 // TEST CASES
 
@@ -90,3 +125,8 @@ input = [1, 2]
 k = 2
 
 console.log(topKFrequent(input, k), [1, 2])
+
+input = [3,3,3,7,9,9,9,9,9, 2]
+k = 2
+
+console.log(topKFrequent(input, k), [3, 9])
