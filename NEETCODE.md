@@ -9,7 +9,7 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 - [x] [Two Sum](https://leetcode.com/problems/two-sum/submissions/)	
 - [x] [Group Anagrams](https://leetcode.com/problems/group-anagrams)
 - [x] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
-- [ ] Product of Array Except Self
+- [x] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
 - [ ] Valid Sudoku	
 - [ ] Encode and Decode Strings	
 - [ ] Longest Consecutive Sequence

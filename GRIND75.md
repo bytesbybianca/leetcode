@@ -44,7 +44,7 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 - [ ] 35. Course Schedule
 - [ ] 36. Implement Trie (Prefix Tree)
 - [ ] 37. Coin Change
-- [ ] 38. Product of Array Except Self
+- [x] 38. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
 - [ ] 39. Validate Binary Search Tree
 - [x] 40. [Number of Islands](https://leetcode.com/problems/number-of-islands)
 - [ ] 41. Rotting Oranges
