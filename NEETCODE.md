@@ -8,7 +8,7 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 - [x] [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 - [x] [Two Sum](https://leetcode.com/problems/two-sum/submissions/)	
 - [x] [Group Anagrams](https://leetcode.com/problems/group-anagrams)
-- [ ] Top K Frequent Elements	
+- [x] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
 - [ ] Product of Array Except Self
 - [ ] Valid Sudoku	
 - [ ] Encode and Decode Strings	
