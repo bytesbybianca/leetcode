@@ -10,9 +10,9 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 - [x] [Group Anagrams](https://leetcode.com/problems/group-anagrams)
 - [x] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
 - [x] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
-- [ ] Valid Sudoku	
+- [ ] [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
 - [ ] Encode and Decode Strings	
-- [ ] Longest Consecutive Sequence
+- [x] [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
 
 ### Two Pointers
 - [x] [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
