@@ -47,17 +47,34 @@ output number
  * @param {string} stones
  * @return {number}
  */
-var numJewelsInStones = function(jewels, stones) {
+ var numJewelsInStones = function(jewels, stones) {
+  const map = {}
   let count = 0
+
+  for(const jewel of jewels) {
+    map[jewel] = true
+  }
   
   for(const stone of stones) {
-    if(jewels.includes(stone)) {
+    if(map[stone]) {
       count++
     }
   }
 
   return count
 };
+
+// var numJewelsInStones = function(jewels, stones) {
+//   let count = 0
+  
+//   for(const stone of stones) {
+//     if(jewels.includes(stone)) {
+//       count++
+//     }
+//   }
+
+//   return count
+// };
 
 // TEST CASES
 let jewels = "aA"
