@@ -24,7 +24,7 @@ Working my way through [Grind 75](https://www.techinterviewhandbook.org/grind75)
 - [ ] 18. Longest Palindrome
 - [ ] 19. Min Stack
 - [ ] 20. Reverse Linked List
-- [ ] 21. Majority Element
+- [x] 21. [Majority Element](https://leetcode.com/problems/majority-element/)
 - [ ] 22. Add Binary
 - [ ] 23. Diameter of Binary Tree
 - [ ] 24. Middle of the Linked List
