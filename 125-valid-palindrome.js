@@ -53,18 +53,28 @@ boolean - true if string is the same when reversed, after removing all non-alpha
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-  let result = ''
-  for(const char of s.toLowerCase()) {
-      if(char.charCodeAt() >= 97 && char.charCodeAt() <= 122 ||
-      !isNaN(parseInt(char))) result += char
-  }  
-
-  for(let i = result.length - 1; i >= 0; i--) {
-      if(result[i] !== result[result.length - 1 - i]) return false
+  let l = 0, r = s.length - 1
+  console.log(';'.charCodeAt())
+  while(l < r) {
+      while(l < r && !alphaNum(s[l])) {
+          l++
+      }
+      while(r > l && !alphaNum(s[r])) {
+          r--
+      }
+      if(s[l].toLowerCase() !== s[r].toLowerCase()) return false
+      l++
+      r--
   }
   return true
+  
+  function alphaNum(char) {
+      return ((char.charCodeAt() >= ('a').codePointAt() && char.charCodeAt() <= ('z').codePointAt()) ||
+              (char.charCodeAt() >= ('A').codePointAt() && char.charCodeAt() <= ('Z').codePointAt()) ||
+              (char.charCodeAt() >= ('0').codePointAt() && char.charCodeAt() <= ('9').codePointAt()))
+  }
 };
- 
+
  // TEST CASES
 
  console.log(isPalindrome("A man, a plan, a canal: Panama"), true)
@@ -123,4 +133,22 @@ Solution 2
   return filtered === reversed
 };
 
+*/
+
+/*
+Solution 3
+
+var isPalindrome = function(s) {
+  let result = ''
+  for(const char of s.toLowerCase()) {
+      if(char.charCodeAt() >= 97 && char.charCodeAt() <= 122 ||
+      !isNaN(parseInt(char))) result += char
+  }  
+
+  for(let i = result.length - 1; i >= 0; i--) {
+      if(result[i] !== result[result.length - 1 - i]) return false
+  }
+  return true
+};
+ 
 */
