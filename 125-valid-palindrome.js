@@ -54,7 +54,7 @@ boolean - true if string is the same when reversed, after removing all non-alpha
  */
 var isPalindrome = function(s) {
   let l = 0, r = s.length - 1
-  console.log(';'.charCodeAt())
+  
   while(l < r) {
       while(l < r && !alphaNum(s[l])) {
           l++
