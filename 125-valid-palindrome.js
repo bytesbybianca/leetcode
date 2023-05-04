@@ -52,26 +52,17 @@ boolean - true if string is the same when reversed, after removing all non-alpha
  * @param {string} s
  * @return {boolean}
  */
- var isPalindrome = function(s) {
-    /*
-    ASCII
-    0-9 => 48-57
-    A-Z => 65-90
-    a-z => 97-122
-    */
-    // filter string for only alphanumeric characters
-    // lowercase
-   let filtered = s.split('').map((x, i) => {
-       if( (x.charCodeAt(0) >= 48 && x.charCodeAt(0) <= 57) ||
-       (x.charCodeAt(0) >= 65 && x.charCodeAt(0) <= 90) ||
-       (x.charCodeAt(0) >= 97 && x.charCodeAt(0) <= 122) ) {
-         return x
-       }
-   }).join('').toLowerCase()
+var isPalindrome = function(s) {
+  let result = ''
+  for(const char of s.toLowerCase()) {
+      if(char.charCodeAt() >= 97 && char.charCodeAt() <= 122 ||
+      !isNaN(parseInt(char))) result += char
+  }  
 
-   let reversed = filtered.split('').reverse().join('')
-   // return true if the same reversed
-   return filtered === reversed
+  for(let i = result.length - 1; i >= 0; i--) {
+      if(result[i] !== result[result.length - 1 - i]) return false
+  }
+  return true
 };
  
  // TEST CASES
@@ -105,4 +96,31 @@ let reversed = filtered.split('').reverse().join('')
 // return true if the same reversed
 return filtered === reversed
 };
+*/
+
+/*
+Solution 2
+
+ var isPalindrome = function(s) {
+    
+    // ASCII
+    // 0-9 => 48-57
+    // A-Z => 65-90
+    // a-z => 97-122
+    
+    // filter string for only alphanumeric characters
+    // lowercase
+    let filtered = s.split('').map((x, i) => {
+      if( (x.charCodeAt(0) >= 48 && x.charCodeAt(0) <= 57) ||
+      (x.charCodeAt(0) >= 65 && x.charCodeAt(0) <= 90) ||
+      (x.charCodeAt(0) >= 97 && x.charCodeAt(0) <= 122) ) {
+        return x
+      }
+  }).join('').toLowerCase()
+
+  let reversed = filtered.split('').reverse().join('')
+  // return true if the same reversed
+  return filtered === reversed
+};
+
 */
