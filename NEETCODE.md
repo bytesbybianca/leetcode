@@ -16,7 +16,7 @@ Working my way through [NeetCode](https://neetcode.io/), a curated list of begin
 
 ### Two Pointers
 - [x] [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
-- [ ] Two Sum II Input Array Is Sorted	
+- [x] [Two Sum II Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 - [ ] 3Sum	
 - [ ] Container With Most Water	
 - [ ] Trapping Rain Water
