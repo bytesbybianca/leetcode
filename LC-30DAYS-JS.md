@@ -11,5 +11,5 @@ Working my way through [30 Days of LC JavaScript Challenge](https://leetcode.com
 - [x] [Day 6: Array Reduce Transformation](https://datayi.cn/w/nPN45jD9)
 - [x] [Day 7: Function Composition](https://datayi.cn/w/4PY7wZM9)
 - [x] [Day 8: Allow One Function Call](https://datayi.cn/w/a9By01Oo)
-- [ ] [Day 9: ]()
+- [x] [Day 9: Memoize](https://datayi.cn/w/nRbADVd9)
 - [ ] [Day 10: ]()
